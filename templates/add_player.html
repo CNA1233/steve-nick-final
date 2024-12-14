@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Player</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Add Player</h1>
+    <form method="POST">
+        {{ form.hidden_tag() }}
+        <div>{{ form.bat_order.label }} {{ form.bat_order }}</div>
+        <div>{{ form.first_name.label }} {{ form.first_name }}</div>
+        <div>{{ form.last_name.label }} {{ form.last_name }}</div>
+        <div>{{ form.position.label }} {{ form.position }}</div>
+        <div>{{ form.at_bats.label }} {{ form.at_bats }}</div>
+        <div>{{ form.hits.label }} {{ form.hits }}</div>
+        <button type="submit">Add Player</button>
+    </form>
+</body>
+</html>
+

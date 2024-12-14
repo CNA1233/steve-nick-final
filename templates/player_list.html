@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Player Management System</title>
+      <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <h1>Players</h1>
+    <table>
+        <tr>
+            <th>Bat Order</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Position</th>
+            <th>At Bats</th>
+            <th>Hits</th>
+            <th>Actions</th>
+        </tr>
+        {% for player in players %}
+        <tr>
+            <td>{{ player['bat_order'] }}</td>
+            <td>{{ player['first_name'] }}</td>
+            <td>{{ player['last_name'] }}</td>
+            <td>{{ player['position'] }}</td>
+            <td>{{ player['at_bats'] }}</td>
+            <td>{{ player['hits'] }}</td>
+            <td>
+                <a href="{{ url_for('edit', player_id=player['player_id']) }}">Edit</a>
+                <a href="{{ url_for('delete', player_id=player['player_id']) }}">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <a href="{{ url_for('add') }}">Add New Player</a>
+</body>
+</html>
